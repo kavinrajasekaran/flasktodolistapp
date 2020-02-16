@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> See all the events</h1>
+<a href = "{{ url_for('new')}}">Add new Task</a>
+  {% for event in events %}
+    <p>
+
+      <a href = "{{url_for('show', id = event.id)}}" style="color:hsla(0,100%,50%,0.5);">{{event.task_name}} {{event.task_description}} </a>
+    </p>
+
+    {% endfor %}
+{% endblock %}
