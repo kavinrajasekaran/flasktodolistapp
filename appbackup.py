@@ -6,7 +6,7 @@ from flask_modus import Modus
 app = Flask(__name__)
 modus = Modus(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/kavinrajasekaran/Documents/CSP/flask/todolist.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/kavinrajasekaran/Documents/CSP/flask/todo/todo.db'
 
 db = SQLAlchemy(app)
 #events = ["Spring Visit", "On May 1st at Donlon from 1:30 to 2:30"]
@@ -18,6 +18,7 @@ class Event(db.Model):
     id =  db.Column(db.Integer, primary_key = True)
     task_name = db.Column(db.Text)
     task_description = db.Column(db.Text)
+
 
 @app.route("/")
 def root():
@@ -65,4 +66,3 @@ def new():
 
 if __name__ == '__main__':
     app.run(debug = True)
-#test

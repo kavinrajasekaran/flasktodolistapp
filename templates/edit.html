@@ -5,6 +5,8 @@
   <form method = "POST" action = "{{url_for('show',id=event.id)}}?_method=PATCH">
     <input type = 'text' name = "t_name" value = "{{event.task_name}}">
     <input type = "text" name = "t_description" value = "{{event.task_description}}">
+    
+
     <input type = "submit" value = "Confirm Changes">
   </form>
 
