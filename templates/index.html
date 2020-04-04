@@ -5,7 +5,10 @@
   {% for event in events %}
     <p>
 
-      <a href = "{{url_for('show', id = event.id)}}" style="color:hsla(0,100%,50%,0.5);">{{event.task_name}} {{event.task_description}} {{event.task_date}}</a>
+      <a href = "{{url_for('show', id = event.id)}}" style="color:hsla(0,100%,50%,0.5);">{{event.task_name}} {{event.task_description}}
+
+     </a>
+     {{event.task_priority}}
     </p>
 
     {% endfor %}

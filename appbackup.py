@@ -6,7 +6,7 @@ from flask_modus import Modus
 app = Flask(__name__)
 modus = Modus(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/kavinrajasekaran/Documents/CSP/flask/todo/todo.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/kavinrajasekaran/Documents/CSP/flask/todo/todo2.db'
 
 db = SQLAlchemy(app)
 #events = ["Spring Visit", "On May 1st at Donlon from 1:30 to 2:30"]
@@ -14,11 +14,10 @@ db = SQLAlchemy(app)
 class Event(db.Model):
 
 
-
     id =  db.Column(db.Integer, primary_key = True)
     task_name = db.Column(db.Text)
     task_description = db.Column(db.Text)
-
+    task_priority = db.Column(db.Text)
 
 @app.route("/")
 def root():
@@ -30,7 +29,7 @@ def root():
 def index():
     if request.method == "POST":
 
-        new_task = Event(task_name = request.form['task_name'], task_description =  request.form['task_description'])
+        new_task = Event(task_name = request.form['task_name'], task_description =  request.form['task_description'], task_priority = request.form['task_priority'])
         #events.append(new_task)
         db.session.add(new_task)
         db.session.commit()
@@ -44,6 +43,7 @@ def show(id):
     if request.method == b'PATCH':
         found_task.task_name = request.form['t_name']
         found_task.task_description = request.form['t_description']
+        found_task.task_priority = request.form['t_priority']
         db.session.add(found_task)
         db.session.commit()
 
