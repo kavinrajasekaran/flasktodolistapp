@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1> See all the events</h1>
-<a href = "{{ url_for('new')}}">Add new Task</a>
+<a href = "{{ url_for('new')}}"><button type="button">Add a new task!</button></a>
+<!--<a href = "{{ url_for('new')}}"> img src</a> -->
   <table class="table table-hover table-dark">
+
+
+    <tr>
+    <th>Task Name </th>
+    <th>Task Description</th>
+    <th>Task priority </th>
+    <th>Task Completion</th>
+      </tr>
   {% for event in events %}
   <tr>
+
+  </tr>
                         <td><a href = "{{url_for('show', id = event.id)}}" >{{event.task_name}} </a></td>
                         <td><a href = "{{url_for('show', id = event.id)}}" >{{event.task_description}} </a></td>
                         <td> <a href = "{{url_for('show', id = event.id)}}" >{{event.task_priority}} </a></td>
-
+                        <td> <a href = "{{url_for('show', id = event.id)}}" >{{event.task_completion}} </a></td>
 
 
     </tr>
